@@ -36,14 +36,11 @@ namespace GradesPrototype.Views
         #region Events
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            // If the user is not a teacher, do nothing
             if (SessionContext.UserRole != Role.Teacher)
             {
                 return;
             }
 
-            // If the user is a teacher, raise the Back event
-            // The MainWindow page has a handler that catches this event and returns to the Students page
             if (Back != null)
             {
                 Back(sender, e);
@@ -51,12 +48,27 @@ namespace GradesPrototype.Views
         }
         #endregion
 
-        // TODO: Exercise 1: Task 4d: Display the details for the current student including the grades for the student
-        // The name of the student is available in the CurrentStudent property of the global context
-        // Grades data is hardcoded in the XAML code for the StudentProfile view in this version of the prototype
         public void Refresh()
         {
+            Match matchNames = Regex.Match(SessionContext.CurrentStudent, @"([^ ]+) ([^ ]+)");
+            if (matchNames.Success)
+            {
+                string firstName = matchNames.Groups[1].Value;
+                string lastName = matchNames.Groups[2].Value;
 
+
+                ((TextBlock)studentName.Children[0]).Text = firstName;
+                ((TextBlock)studentName.Children[1]).Text = lastName;
+            }
+
+            if (SessionContext.UserRole == Role.Student)
+            {
+                btnBack.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnBack.Visibility = Visibility.Visible;
+            }
         }
     }
 }
