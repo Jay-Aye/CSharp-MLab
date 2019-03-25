@@ -27,9 +27,11 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <y:LogonPage x:Name="logonPage" LogonSuccess ="Logon_Success" Visibility="Collapsed" />
+                <!-- CONTENT -->
+                <y:LogonPage x:Name="logonPage" LogonSuccess="Logon_Success" LogonFailed="Logon_Failed" Visibility="Collapsed" />
                 <y:StudentsPage x:Name="studentsPage" StudentSelected="studentsPage_StudentSelected" Visibility="Collapsed" />
                 <y:StudentProfile x:Name="studentProfile" Back="studentPage_Back" Visibility="Collapsed" />
+                <!-- CONTENT -->
             </Grid>
         </Grid>
     </Grid>

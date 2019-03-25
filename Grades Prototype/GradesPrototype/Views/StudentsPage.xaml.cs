@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GradesPrototype.Data;
+using GradesPrototype.Services;
 
 namespace GradesPrototype.Views
 {
@@ -28,10 +29,20 @@ namespace GradesPrototype.Views
         }
 
         #region Display Logic
-
         public void Refresh()
         {
-            txtClass.Text = "3A";
+            ArrayList students = new ArrayList();
+            foreach (Student student in DataSource.Students)
+            {
+                if (student.TeacherID == SessionContext.CurrentTeacher.TeacherID)
+                {
+                    students.Add(student);
+                }
+            }
+
+            list.ItemsSource = students;
+
+            txtClass.Text = String.Format("Class {0}", SessionContext.CurrentTeacher.Class);
         }
         #endregion
 
@@ -46,20 +57,23 @@ namespace GradesPrototype.Views
             Button itemClicked = sender as Button;
             if (itemClicked != null)
             {
-                string studentName = (string)itemClicked.Tag;
+                int studentID = (int)itemClicked.Tag;
                 if (StudentSelected != null)
                 {
-                    StudentSelected(sender, new StudentEventArgs(studentName));
+                    Student student = (Student)itemClicked.DataContext;
+                    
+                    StudentSelected(sender, new StudentEventArgs(student));
                 }
             }
         }
         #endregion
     }
+
     public class StudentEventArgs : EventArgs
     {
-        public string Child { get; set; }
+        public Student Child { get; set; }
 
-        public StudentEventArgs(string s)
+        public StudentEventArgs(Student s)
         {
             Child = s;
         }

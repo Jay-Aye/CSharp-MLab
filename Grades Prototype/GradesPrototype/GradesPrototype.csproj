@@ -54,7 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\Grade.cs" />
+    <Compile Include="Data\DataSource.cs" />
     <Compile Include="Services\SessionContext.cs" />
     <Compile Include="Views\LogonPage.xaml.cs">
       <DependentUpon>LogonPage.xaml</DependentUpon>
@@ -73,6 +73,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\Grade.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

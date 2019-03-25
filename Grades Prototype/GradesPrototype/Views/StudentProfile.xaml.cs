@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -50,16 +49,7 @@ namespace GradesPrototype.Views
 
         public void Refresh()
         {
-            Match matchNames = Regex.Match(SessionContext.CurrentStudent, @"([^ ]+) ([^ ]+)");
-            if (matchNames.Success)
-            {
-                string firstName = matchNames.Groups[1].Value;
-                string lastName = matchNames.Groups[2].Value;
-
-
-                ((TextBlock)studentName.Children[0]).Text = firstName;
-                ((TextBlock)studentName.Children[1]).Text = lastName;
-            }
+            studentName.DataContext = SessionContext.CurrentStudent;
 
             if (SessionContext.UserRole == Role.Student)
             {
@@ -69,6 +59,16 @@ namespace GradesPrototype.Views
             {
                 btnBack.Visibility = Visibility.Visible;
             }
+            
+            ArrayList grades = new ArrayList();
+            foreach (Grade grade in DataSource.Grades)
+            {
+                if (grade.StudentID == SessionContext.CurrentStudent.StudentID)
+                {
+                    grades.Add(grade);
+                }
+            }
+            studentGrades.ItemsSource = grades;
         }
     }
 }

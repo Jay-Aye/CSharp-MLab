@@ -29,26 +29,48 @@ namespace GradesPrototype.Views
 
         #region Event Members
         public event EventHandler LogonSuccess;
-
+        public event EventHandler LogonFailed;
         #endregion
 
         #region Logon Validation
 
         private void Logon_Click(object sender, RoutedEventArgs e)
         {
+            var teacher = (from Teacher t in DataSource.Teachers
+                           where String.Compare(t.UserName, username.Text) == 0
+                           && String.Compare(t.Password, password.Password) == 0
+                           select t).FirstOrDefault();
 
-            SessionContext.UserName = username.Text;
-            SessionContext.UserRole = (bool)userrole.IsChecked ? Role.Teacher : Role.Student;
-
-            if (SessionContext.UserRole == Role.Student)
+            if (!String.IsNullOrEmpty(teacher.UserName))
             {
-                SessionContext.CurrentStudent = "Eric Gruber";
-            }
 
-            if (LogonSuccess != null)
-            {
+                SessionContext.UserID = teacher.TeacherID;
+                SessionContext.UserRole = Role.Teacher;
+                SessionContext.UserName = teacher.UserName;
+                SessionContext.CurrentTeacher = teacher; 
+
                 LogonSuccess(this, null);
+                return;
             }
+            else
+            {
+                var student = (from Student s in DataSource.Students
+                               where String.Compare(s.UserName, username.Text) == 0
+                               && String.Compare(s.Password, password.Password) == 0
+                               select s).FirstOrDefault();
+
+                if (!String.IsNullOrEmpty(student.UserName))
+                {
+                    SessionContext.UserID = student.StudentID;
+                    SessionContext.UserRole = Role.Student;
+                    SessionContext.UserName = student.UserName;
+                    SessionContext.CurrentStudent = student; 
+
+                    LogonSuccess(this, null);
+                    return;
+                }
+            }
+            LogonFailed(this, null);
         }
         #endregion
     }

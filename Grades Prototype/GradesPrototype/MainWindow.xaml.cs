@@ -27,10 +27,12 @@ namespace GradesPrototype
         public MainWindow()
         {
             InitializeComponent();
+            DataSource.CreateData();
             GotoLogon();
         }
 
         #region Navigation
+
         public void GotoLogon()
         {
             logonPage.Visibility = Visibility.Visible;
@@ -39,18 +41,17 @@ namespace GradesPrototype
         }
 
         private void GotoStudentsPage()
-        {
+        {   
             studentProfile.Visibility = Visibility.Collapsed;
 
             studentsPage.Visibility = Visibility.Visible;
             studentsPage.Refresh();
         }
-
-        // Display the details for a single student
+        
         public void GotoStudentProfile()
         {
             studentsPage.Visibility = Visibility.Collapsed;
-
+            
             studentProfile.Visibility = Visibility.Visible;
             studentProfile.Refresh();
         }
@@ -65,6 +66,11 @@ namespace GradesPrototype
             Refresh();
         }
 
+        private void Logon_Failed(object sender, EventArgs e)
+        {
+            MessageBox.Show("Invalid Username or Password", "Logon Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
         private void Logoff_Click(object sender, RoutedEventArgs e)
         {
             gridLoggedIn.Visibility = Visibility.Collapsed;
@@ -72,12 +78,12 @@ namespace GradesPrototype
             studentProfile.Visibility = Visibility.Collapsed;
             logonPage.Visibility = Visibility.Visible;
         }
-
+        
         private void studentPage_Back(object sender, EventArgs e)
         {
             GotoStudentsPage();
         }
-
+        
         private void studentsPage_StudentSelected(object sender, StudentEventArgs e)
         {
             SessionContext.CurrentStudent = e.Child;
@@ -86,21 +92,21 @@ namespace GradesPrototype
         #endregion
 
         #region Display Logic
-
+        
         private void Refresh()
         {
             switch (SessionContext.UserRole)
             {
                 case Role.Student:
-                    txtName.Text = string.Format("Welcome {0}", SessionContext.UserName);
-
+                    txtName.Text = string.Format("Welcome {0} {1}", SessionContext.CurrentStudent.FirstName, SessionContext.CurrentStudent.LastName);
+                    
                     GotoStudentProfile();
                     break;
 
                 case Role.Teacher:
-                    txtName.Text = string.Format("Welcome {0}", SessionContext.UserName);
-
-                    GotoStudentsPage();
+                    txtName.Text = string.Format("Welcome {0} {1}", SessionContext.CurrentTeacher.FirstName, SessionContext.CurrentTeacher.LastName);
+                    
+                    GotoStudentsPage();                    
                     break;
             }
         }
