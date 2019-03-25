@@ -1,0 +1,17 @@
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\bin\Debug\School.exe.config
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\bin\Debug\School.exe
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\bin\Debug\School.pdb
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\School.csprojResolveAssemblyReference.cache
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\StudentForm.baml
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\MainWindow.g.cs
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\StudentForm.g.cs
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\App.g.cs
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\School_MarkupCompile.cache
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\School_MarkupCompile.lref
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\MainWindow.baml
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\School.g.resources
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\School.Properties.Resources.resources
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\School.csproj.GenerateResource.Cache
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\School.exe
+C:\Users\JAlexander\Desktop\Personal Training\C#\20483-Programming-in-C-Sharp\Allfiles\Mod01\Labfiles\Starter\Exercise 1\School\obj\Debug\School.pdb
